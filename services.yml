@@ -1,0 +1,18 @@
+version: "3.4"
+services:
+  audiogeek-postgres:
+    image: postgres:14.4
+    container_name:  audiogeek-postgres
+    environment:
+      - POSTGRES_PASSWORD=audiogeek
+      - POSTGRES_USER=audiogeek
+    ports:
+      - "5432:5432"
+  audiogeek-pgadmin:
+    image: dpage/pgadmin4:6.11
+    container_name: audiogeek-pgadmin
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=codebusters@ironhills.dev
+      - PGADMIN_DEFAULT_PASSWORD=postgres
+    ports:
+      - "5480:80"
